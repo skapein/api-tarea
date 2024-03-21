@@ -6,18 +6,18 @@ export class LibrosDTO {
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  readonly titulo: string;
+  readonly nombre: string;
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  readonly genero: string;
+  readonly nacionalidad: string;
   @ApiProperty()
   @IsNotEmpty()
   @Type(() => Date)
   @IsDate()
-  readonly anio_publicacion;
+  readonly anio_nacimiento;
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  readonly editorial: string;
+  readonly genero: string;
 }
