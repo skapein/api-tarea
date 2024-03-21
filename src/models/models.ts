@@ -1,3 +1,3 @@
 export const USER = { name: 'user' };
-export const ACTORES = { name: 'autores' };
-export const PELICULAS = { name: 'libros' };
+export const AUTORES = { name: 'autores' };
+export const LIBROS = { name: 'libros' };
