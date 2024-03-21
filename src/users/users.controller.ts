@@ -1,4 +1,31 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common';
+import { UsersService } from './users.service';
+import { UserDTO } from './dto/users.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('users')
-export class UsersController {}
+@ApiTags('Users')
+@Controller('api/v1/users')
+export class UsersController {
+    constructor (private userService:UsersService){}
+
+    @Post()
+    insertar(@Body() userDTO: UserDTO){
+        return this.userService.insertar(userDTO);
+    }
+    @Get()
+    todos(){
+        return this.userService.todos();
+    }   
+    @Get(':id')
+    uno(@Param('id') id: string){
+        return this.userService.uno(id);
+    }
+    @Put(':id')
+    actualizar(@Param('id') id: string, @Body() userDTO: UserDTO){
+        return this.userService.actualizar(id, userDTO);
+    }
+    @Delete(':id')
+    eliminar(@Param('id') id: string){
+        return this.userService.eliminar(id);
+    }
+}
